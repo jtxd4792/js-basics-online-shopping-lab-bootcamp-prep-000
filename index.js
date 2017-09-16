@@ -10,15 +10,31 @@ function setCart(c) {
 }
 
 function addToCart(item) {
- // write your code here
+  var itemPrice = Math.floor(Math.random() * 100)
+
+  cart.push({ [item]: itemPrice })
+  console.log(`${item} has been added to your cart.`)
+  return cart
 }
 
 function viewCart() {
-  // write your code here
-}
+  if (cart.length === 0) {
+    return console.log('Your shopping cart is empty.')
+  }
+  for (var i = 0; i < cart.length; i++) {
+      var itemsWithPrices = cart[i]
+      var itemName = Object.keys(itemsWithPrices)[i]
+      var itemPrice = itemsWithPrices[itemName]
+      console.log(`In your cart, you have ${itemName} at ${itemPrice}.`)
+    }
+  }
+
 
 function total() {
-  // write your code here
+  var emptyTotal = 0
+  for (var i = 0; i < cart.length; i++) {
+    emptyTotal += cart[i]
+  }
 }
 
 function removeFromCart(item) {
